@@ -11,7 +11,6 @@ import javax.swing.JFrame;
 import java.awt.BorderLayout;
 
 public class FractalExplorer {
-    private float hueOffset = 0;
     private JImageDisplay image;
     private FractalGenerator fracGen;
     private Rectangle2D.Double range;
@@ -64,7 +63,7 @@ public class FractalExplorer {
             if (x * x + y * y > 4) break;
         }
         if (i == JImageDisplay.ITERATIONS) return 0x00000000;
-        return Color.HSBtoRGB((float) i / (float) JImageDisplay.ITERATIONS + hueOffset, 0.5f, 1f);
+        return Color.HSBtoRGB((float) i / (float) JImageDisplay.ITERATIONS, 0.5f, 1f);
     }
 
     private void drawFractal() {
