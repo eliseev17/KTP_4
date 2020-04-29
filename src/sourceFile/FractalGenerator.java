@@ -1,5 +1,6 @@
-import java.awt.geom.Rectangle2D;
+package sourceFile;
 
+import java.awt.geom.Rectangle2D;
 
 /**
  * This class provides the common interface and operations for fractal
@@ -55,7 +56,6 @@ public abstract class FractalGenerator {
         range.width = newWidth;
         range.height = newHeight;
     }
-
 
     /**
      * Given a coordinate <em>x</em> + <em>iy</em> in the complex plane,
