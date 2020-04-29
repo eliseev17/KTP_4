@@ -5,6 +5,7 @@ import java.awt.geom.Rectangle2D;
 public class Mandelbrot extends FractalGenerator {
     public static final int MAX_ITERATIONS = 2000;
 
+    @Override
     public void getInitialRange(Rectangle2D.Double range) {
         range.x = -2;
         range.y = -1.5;
@@ -12,22 +13,29 @@ public class Mandelbrot extends FractalGenerator {
         range.height = 3;
     }
 
+    @Override
     public int numIterations(double x, double y) {
         double re = x;
         double im = y;
-        boolean flag = true;
         int iter = 0;
-        while ((iter < MAX_ITERATIONS) && (flag)) {
+        while ((iter < MAX_ITERATIONS)) {
             iter = iter + 1;
-            re = re * re - im * im;
-            im = im * re * 2;
-            if ((re * re + im * im) < 4) {
-                flag = false;
+            double re2 = x * x - y * y + re;
+            double im2 = 2 * x * y + im;
+            x = re2;
+            y = im2;
+            if ((x * x + y * y) > 4) {
                 break;
             }
         }
-        if (flag == true) {
+        if (iter == MAX_ITERATIONS) {
             return -1;
-        } else return iter;
+        }
+        return iter;
+    }
+
+    @Override
+    public String toString() {
+        return "Mandelbrot";
     }
 }

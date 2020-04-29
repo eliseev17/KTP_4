@@ -3,14 +3,17 @@ import java.awt.image.BufferedImage;
 import javax.swing.JComponent;
 
 public class JImageDisplay extends JComponent {
-    public static final int WIDTH = 600;
-    public static final int HEIGHT = 600;
-    public static final int ITERATIONS = 100;
+    public static final int WIDTH = 500;
+    public static final int HEIGHT = 500;
     private BufferedImage image;
 
     JImageDisplay() {
         image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
+    }
+
+    public BufferedImage getImage() {
+        return image;
     }
 
     protected void paintComponent(Graphics g) {
