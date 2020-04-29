@@ -64,14 +64,12 @@ public class FractalExplorer {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFileChooser myFileChooser = new JFileChooser();
-                FileFilter extensionFilter =
-                        new FileNameExtensionFilter("PNG Images", "png");
-                myFileChooser.setFileFilter(extensionFilter);
+                FileFilter filter = new FileNameExtensionFilter("PNG Images", "png");
+                myFileChooser.setFileFilter(filter);
                 myFileChooser.setAcceptAllFileFilterUsed(false);
                 int userSelection = myFileChooser.showSaveDialog(imageDisplay);
                 if (userSelection == JFileChooser.APPROVE_OPTION) {
                     File file = myFileChooser.getSelectedFile();
-                    String file_name = file.toString();
                     try {
                         BufferedImage displayImage = imageDisplay.getImage();
                         ImageIO.write(displayImage, "png", file);
